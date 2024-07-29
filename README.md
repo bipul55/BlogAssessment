@@ -40,18 +40,33 @@ The backend is created using Node.js and Express.js. To start the backend server
 
    1. The .env file is included in the repository for simplicity. Ensure that you provide a valid MySQL server URL in the following format:
 
-   DATABASE_URL="mysql://username:password@host:port/database"
+```bash
+  DATABASE_URL="mysql://username:password@host:port/database"
+
+```
 
 3. Install all dependencies:
+
+   ```bash
    npm install
 
+   ```
+
 4. Migrate the database:
+
+```bash
    npx prisma migrate dev --name <migration name>
+
+```
 
 This command will migrate all updates to the database, creating tables and the database structure.
 
 5. Start the backend server:
-   npm run dev
+
+```bash
+  npm run dev
+
+```
 
 Since this is a development environment, nodemon has been used to automatically restart the server on file changes.
 
