@@ -75,4 +75,5 @@ Since this is a development environment, nodemon has been used to automatically 
 For first-time users, migrating the database will automatically create a user profile for you. Please find the credentials below:
 
 Email: tempuser@gmail.com
+
 Password: Sample@123
