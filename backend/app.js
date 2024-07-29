@@ -5,7 +5,8 @@ const cors = require("cors");
 const path = require("path");
 const corsOptions = require("./src/config/corsConfig");
 const PORT = process.env.PORT;
-
+const { PrismaClient } = require("@prisma/client");
+const { User, Blog } = new PrismaClient();
 app.use(cors(corsOptions));
 
 app.use(express.json());
@@ -19,6 +20,11 @@ app.get("/file/:name", (req, res) => {
   } catch (err) {
     res.status(404);
   }
+});
+
+app.get("/data", async (req, res) => {
+  const user = await User.findMany();
+  res.json(user);
 });
 
 app.listen(PORT, (error) => {
