@@ -16,10 +16,18 @@ The frontend is created using React.js. To run the frontend code, you need to ha
    ```
 
 2. Install all dependencies:
+
+   ```bash
    npm install
 
+   ```
+
 3. Start the frontend server:
-   npm run start
+
+   ```bash
+     npm run start
+
+   ```
 
 This will install all the necessary dependencies and start the frontend development server.
 
