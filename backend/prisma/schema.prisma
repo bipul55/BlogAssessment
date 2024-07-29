@@ -1,0 +1,72 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  previewFeatures = ["fullTextSearch", "fullTextIndex"]
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+
+
+
+model ForgetPasswordToken {
+  id        String   @id @default(uuid())
+  userid    String   @unique
+  user      User     @relation(fields: [userid], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model User {
+  id                       String                     @id @default(uuid())
+  forgetPasswordToken      ForgetPasswordToken?
+  profilePic               String?                    @default("")
+  emailConfirm             Boolean                    @default(false)
+  email                    String                     @unique
+  password                 String
+  fname                    String
+  mname                    String?
+  lname                    String
+  bio                      String?                    @default("")                   
+  comments                 Comment[]
+  blog                     Blog[]
+  createdAt                DateTime                   @default(now())
+  updatedAt                DateTime                   @updatedAt
+}
+
+model Blog {
+  id           String   @id @default(uuid())
+  topic        String   
+  description  String   @db.Text 
+  overview     String   @db.VarChar(1000)  
+  bannerImage  String? 
+  deleted      Boolean  @default(false) 
+  userid       String  
+  category     String
+  tags         String
+  comments     Comment[]
+  views        Int      @default(0) 
+  user         User     @relation(fields: [userid], references: [id])
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+
+model Comment {
+  id           String      @id @default(uuid())
+  blogid       String
+  userid       String
+  body         String      @db.Text
+  blog         Blog        @relation(fields: [blogid], references: [id])
+  user         User        @relation(fields: [userid], references: [id])
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
+}

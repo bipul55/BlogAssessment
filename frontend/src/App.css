@@ -1,0 +1,130 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.logout-container {
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  background-color: #1e40af; /* Tailwind's gray-900 color */
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease; /* Smooth transition */
+}
+
+.logout-container:hover {
+  height: 120px;
+  width: 120px;
+  border-radius: 10px;
+  top: 0px;
+  right: 0px;
+  background: hsla(226, 71%, 40%, 1);
+
+  background: linear-gradient(
+    360deg,
+    hsla(226, 71%, 40%, 1) 0%,
+    hsla(220, 14%, 96%, 1) 100%
+  );
+
+  background: -moz-linear-gradient(
+    360deg,
+    hsla(226, 71%, 40%, 1) 0%,
+    hsla(220, 14%, 96%, 1) 100%
+  );
+
+  background: -webkit-linear-gradient(
+    360deg,
+    hsla(226, 71%, 40%, 1) 0%,
+    hsla(220, 14%, 96%, 1) 100%
+  );
+
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#1E40AF", endColorstr="#F3F4F6", GradientType=1 );
+}
+.logout-container .logout {
+  display: none;
+}
+.logout-container:hover .logout {
+  display: block;
+}
+.logout-container .hover-me {
+  display: block;
+}
+.logout-container:hover .hover-me {
+  display: none;
+}
+.textarea-with-custom-scrollbar {
+  /* Define the styles for the textarea itself */
+  /* ... */
+
+  /* Define the custom scrollbar styles */
+  scrollbar-width: thin; /* "auto" or "thin" or "none" */
+  scrollbar-color: #a6aebb #ffffff; /* thumb color and track color */
+}
+
+.textarea-with-custom-scrollbar::-webkit-scrollbar {
+  width: 6px; /* width of the vertical scrollbar */
+}
+
+.textarea-with-custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #a6aebb; /* color of the thumb */
+  border-radius: 6px; /* border radius of the thumb */
+}
+
+.textarea-with-custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #a6aebb; /* color of the thumb on hover */
+}
+
+.textarea-with-custom-scrollbar::-webkit-scrollbar-track {
+  background-color: #ffffff; /* color of the track */
+}
+
+.custom-two-line-text {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.5; /* Adjust line height as needed */
+  max-height: 3.2em; /* 3 * line-height, adjust accordingly */
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
